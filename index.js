@@ -13,6 +13,18 @@ function addListeners() {
             animaster().fadeOut(block, 5000);
         });
 
+    document.getElementById('fadeInReset')
+        .addEventListener('click', function () {
+            const block = document.getElementById('fadeInBlock');
+            animaster().resetFadeIn(block, 5000);
+        });
+
+    document.getElementById('fadeOutReset')
+        .addEventListener('click', function () {
+            const block = document.getElementById('fadeOutBlock');
+            animaster().resetFadeOut(block, 5000);
+        });
+
     document.getElementById('movePlay')
         .addEventListener('click', function () {
             const block = document.getElementById('moveBlock');
@@ -172,6 +184,12 @@ function animaster() {
                 }, delay);
                 delay += step.duration;
             });
+        },
+
+        resetFadeIn(element) {
+            element.style.transition = null;
+            element.classList.remove('show');
+            element.classList.add('hide');
         }
     };
 }
