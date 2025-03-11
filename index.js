@@ -31,10 +31,22 @@ function addListeners() {
             animaster().move(block, 1000, {x: 100, y: 10});
         });
 
+    document.getElementById('moveReset')
+        .addEventListener('click', function () {
+            const block = document.getElementById('moveBlock');
+            animaster().resetMove(block);
+        });
+
     document.getElementById('scalePlay')
         .addEventListener('click', function () {
             const block = document.getElementById('scaleBlock');
             animaster().scale(block, 1000, 1.25);
+        });
+
+    document.getElementById('scaleReset')
+        .addEventListener('click', function () {
+            const block = document.getElementById('scaleBlock');
+            animaster().resetScale(block);
         });
 
     document.getElementById('moveAndHidePlay')
@@ -164,6 +176,15 @@ function animaster() {
 
         resetMoveAndScale(element) {
             element.style.transition = null;
+            element.style.transform = null;
+        },
+
+        resetMove(element) {
+            element.style.transition = null;
+            element.style.transform = null;
+        },
+
+        resetScale(element) {
             element.style.transform = null;
         },
 
